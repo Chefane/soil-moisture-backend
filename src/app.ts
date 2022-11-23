@@ -3,6 +3,7 @@ import DB_CONNECTION from "./config/dbConnect";
 import * as mongoose from "mongoose";
 import { PORT } from "./config/utils";
 import { errorHandler } from "./middlewares/errorMiddleware";
+import routes from './routes/route';
 import cors from "cors";
 
 
@@ -29,6 +30,8 @@ mongoose
 app.get('/', (req, res) => {
  res.send("Soil mositure rest API");
 });
+
+app.use(routes);
 
 
 app.use(errorHandler)
